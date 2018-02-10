@@ -30,6 +30,8 @@ options="Options:
 
     -t <text>, --text <text> Set a custom text prompt.
 
+    -b, --bar		Use bar instead of ring TODO
+
     -l, --listfonts  Display a list of possible fonts for use with -f/--font.
                      Note: this option will not lock the screen, it displays
                      the list and exits immediately.
@@ -100,16 +102,16 @@ color=$(convert "$image" -gravity center -crop 100x100+0+0 +repage -colorspace h
 if [[ $color -gt $value ]]; then #white background image and black text
     bw="black"
     icon="$scriptpath/icons/lockdark.png"
-    param=("--veriftext=''" "--insidecolor=0000001c" "--ringcolor=0000003e" \
+    param=("--veriftext=" "--insidecolor=0000001c" "--ringcolor=0000003e" \
         "--linecolor=00000000" "--keyhlcolor=ffffff80" "--ringvercolor=ffffff00" \
-        "--separatorcolor=22222260" "--insidevercolor=ffffff1c" "--wrongtext=''" \
+        "--separatorcolor=22222260" "--insidevercolor=ffffff1c" "--wrongtext=" \
         "--ringwrongcolor=ffffff55" "--insidewrongcolor=ffffff1c" "--indpos=525:300")
 else #black
     bw="white"
     icon="$scriptpath/icons/lock.png"
-    param=("--veriftext=''" "--insidecolor=ffffff1c" "--ringcolor=ffffff3e" \
+    param=("--veriftext=" "--insidecolor=ffffff1c" "--ringcolor=ffffff3e" \
         "--linecolor=ffffff00" "--keyhlcolor=00000080" "--ringvercolor=00000000" \
-        "--separatorcolor=22222260" "--insidevercolor=0000001c" "--wrongtext=''"\
+        "--separatorcolor=22222260" "--insidevercolor=0000001c" "--wrongtext="\
         "--ringwrongcolor=00000055" "--insidewrongcolor=0000001c" "--indpos=525:300")
 fi
 
