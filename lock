@@ -105,14 +105,16 @@ if [[ $color -gt $value ]]; then #white background image and black text
     param=("--veriftext=" "--insidecolor=0000001c" "--ringcolor=0000003e" \
         "--linecolor=00000000" "--keyhlcolor=ffffff80" "--ringvercolor=ffffff00" \
         "--separatorcolor=22222260" "--insidevercolor=ffffff1c" "--wrongtext=" \
-        "--ringwrongcolor=ffffff55" "--insidewrongcolor=ffffff1c" "--indpos=525:300")
+        "--ringwrongcolor=ffffff55" "--insidewrongcolor=ffffff1c" "--indpos=525:300"\
+	"--noinputtext=")
 else #black
     bw="white"
     icon="$scriptpath/icons/lock.png"
     param=("--veriftext=" "--insidecolor=ffffff1c" "--ringcolor=ffffff3e" \
         "--linecolor=ffffff00" "--keyhlcolor=00000080" "--ringvercolor=00000000" \
         "--separatorcolor=22222260" "--insidevercolor=0000001c" "--wrongtext="\
-        "--ringwrongcolor=00000055" "--insidewrongcolor=0000001c" "--indpos=525:300")
+        "--ringwrongcolor=00000055" "--insidewrongcolor=0000001c" "--indpos=525:300"\
+	"--noinputtext=")
 fi
 
 convert "$image" "${hue[@]}" "${effect[@]}" -font "$font" -pointsize 26 -fill "$bw" -gravity center \
